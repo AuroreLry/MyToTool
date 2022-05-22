@@ -1,0 +1,33 @@
+.spc-t2 {
+    margin-top: 2rem !important;
+}
+
+h1 {
+    text-align: center;
+    color: #DF7416;
+}
+
+body {
+    background-image: url("https://cache.cosmopolitan.fr/data/photo/w1000_ci/1h4/savon.jpg");
+}
+
+.box-shadow {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding-right: 5rem;
+    padding-left: 5rem;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+    background-color: #FFF5EE;
+}
+
+.box {
+    margin-top: 10rem;
+}
+
+.btn-connexion {
+    background-color: #DF7416;
+}
+
+.form-label {
+    color: #2E5339;
+}

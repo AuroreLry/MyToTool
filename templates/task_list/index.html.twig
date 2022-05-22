@@ -1,0 +1,120 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listes{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/liste.css') }}" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 box-left">
+            <div class="row profil justify-content-start align-items-center">
+                <img class="img_profil" src="https://www.adobe.com/fr/express/create/profile-picture/media_127a9a19d5ab16289daf2543126ce3cfe5e5290fe.jpeg?width=400&format=jpeg&optimize=medium" alt="image de profil" />
+                <h3>{{ user.login }}</h3>
+            </div>
+            <div class="row semaine">
+                <div class="col">
+                    <a href="{{ path('app_home') }}" style="text-decoration: none;"><h2 style="color: #FFC39C;">MA SEMAINE</h2></a>
+                    <hr>
+                </div>
+            </div>
+
+            <ul id="list" style="padding-left: 1rem;">
+                {% for liste in listes %}
+                    <li>
+                        <div class="row listes justify-content-start">
+                            <div class="col d-flex align-items-center justify-content-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"/>
+                                    <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z"/>
+                                    <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"/>
+                                </svg>
+                                <a href="{{ path('app_task_list', {listId: liste.id}) }}" style="text-decoration: none;"><h5>{{ liste.nom }}</h5></a>
+                                <button type="submit" class="supprimerliste d-flex align-items-center" data-listId="{{ liste.id }}" style="border: none; margin-left: 3%;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                        <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="row create_task">
+                <div class="col d-flex align-items-center justify-content-around hover_task">
+                    <form method="post">
+                        <div class="mb-3">
+                            <h4 for="task_name" class="form-label">Nom de la liste</h4>
+                            <input type="text" class="form-control" id="list_name" placeholder="Entrez le nom de la liste à créer" style="border-radius: 50px;border-color: #FFC39C;width: 130%;">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" id="create_list" class="btn btn-task mb-3" style="border-radius: 50px;width: 130%;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                </svg>
+                                Créer une nouvelle liste</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-10 back_img" >
+            <div class="row margin_row" style="height: 927px;">
+                <div class="titre_liste text-center" >
+                    <h1 style="margin-top: 5%; color: #87A96B;">Titre Liste</h1>
+                </div>
+                <div class="row">
+                    <ul id="add_task" class="list-group">
+                        {% for task in listeDetails.listsoftasks %}
+                            <li id="li-{{ task.id }}" class="list-group-item" style="background-color: transparent; border: none; font-size: 1.5rem;">
+                                <input class="form-check-input me-1 checkbox_task" type="checkbox" value="{{ task.id }}" aria-label="..." {% if task.active %} checked="checked" {% endif %}>
+                                    {{ task.name }}
+                                <button type="submit" class="supprimerTache" data-taskId="{{ task.id }}" style="border: none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16" >
+                                        <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                                    </svg>
+                                </button>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="row align-self-end">
+                    <h4>Nouvelle tache</h4>
+                    <form method="post" class="d-flex justify-content-around">
+                        <div class="mb-3 col-3">
+                            <input type="text" class="form-control" id="task_name" placeholder="Entrez le nom de la tâche à effectuer" style="border-radius: 50px;border-color: #FFC39C;">
+                        </div>
+                        <div class="col-3">
+                            <select class="form-select" id="task_priority" aria-label="Priority select" style="border-radius: 50px;border-color: #FFC39C;">
+                                <option selected>Choisissez une priorité</option>
+                                <option value="normal">Normale</option>
+                                <option value="important">Important</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <select class="form-select" id="task_list" aria-label="List select" style="border-radius: 50px;border-color: #FFC39C;">
+                                <option selected>Choisissez une liste</option>
+                                {% for liste in listes %}
+                                    <option value="{{ liste.id }}">{{ liste.nom }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="col-auto">
+                            <button type="submit" id="create_task" class="btn btn-task mb-3" style="border-radius: 50px; padding-bottom: 5px; padding-top: 5px; padding-left: 20px; padding-right: 20px;">Ajouter une tâche</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

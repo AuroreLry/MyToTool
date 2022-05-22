@@ -1,0 +1,112 @@
+.box-left {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #FFF5EE;
+  height: 927px;
+}
+
+.img_profil {
+  border-radius: 50%;
+  height: auto;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h3 {
+  text-align: center;
+  color: #2E5339;
+}
+
+.semaine {
+  margin-top: 15%;
+  margin-bottom: 5%;
+}
+
+.bi-list-task {
+  margin-right: 5%;
+}
+
+.bi-trash3-fill {
+  color: #2E5339;
+}
+
+h5 {
+  color: #2E5339;
+}
+
+h5:hover {
+  color: #FFC39C;
+}
+
+h2 {
+  color: #FFC39C;
+}
+
+h2:hover {
+  color: #87A96B;
+}
+
+h4 {
+  color: #2E5339;
+}
+
+.bi-plus-circle-fill {
+  color: #2E5339;
+}
+
+.create_task {
+  position: absolute;
+  bottom: 2%;
+}
+
+.btn-task {
+  background-color: #FFC39C;
+}
+
+.btn-task:hover {
+  background-color: #87A96B;
+}
+
+#list {
+  list-style-type: none;
+}
+
+#list_name {
+  border-radius: 50px;
+}
+
+/******************************* col droite **************************************/
+
+.back_img {
+  background-image: url("https://zupimages.net/up/22/18/tn23.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.margin_row {
+  margin-top: 8%;
+}
+
+.list-group-item {
+  padding-left: 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.3em;
+  border: none;
+}
+
+.liste {
+  border-left: solid grey 1px;
+}
+
+h1 {
+  color: #2E5339;
+}
+
+.list-group-flush {
+  font-size: 1em;
+}
+
+#background_color_ul {
+  background-color: #FFF5EE;
+}
