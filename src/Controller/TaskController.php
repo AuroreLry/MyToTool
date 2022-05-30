@@ -59,11 +59,8 @@ class TaskController extends AbstractController
     {
         $task = $taskRepository->find($request->request->get('taskId'));
 
-        $active = 0;
-        if ($request->get('done') === true) {
-            $active = 1;
-        }
-        $task->setActive($active);
+
+        $task->setActive(!$task->getActive());
 
         $entityManager = $registry->getManager();
         $entityManager->persist($task);

@@ -31,6 +31,7 @@ class TaskListController extends AbstractController
             'user' => $session->get('user'),
             'listes' => $userList,
             'listeDetails' => $list,
+            'currentListe' => $listId
 
         ]);
     }
